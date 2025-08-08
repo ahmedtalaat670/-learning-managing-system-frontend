@@ -123,7 +123,7 @@ const AuthContextProvider = ({ children }) => {
           {loading ? (
             <div>
               <div className="h-screen w-full flex items-center justify-center">
-                <img src="/src/assets/icon2.png" />
+                <img src="../../assets/icon2.png" />
               </div>
               <span
                 className={`capitalize absolute w-full  bottom-10 text-center font-bold text-xl`}
