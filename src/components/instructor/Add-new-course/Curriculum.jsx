@@ -3,10 +3,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
-import MediaProgressbar from "@/components/upload-progress-bar";
-import NewUploadProgessBar from "@/components/upload-progress-bar/newUploadProgessBar";
 import { curriculumInitialFormData } from "@/config";
 import { InstructorContext } from "@/context/instructor-context";
 import {
