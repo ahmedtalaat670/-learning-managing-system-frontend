@@ -5,6 +5,7 @@ import { checkAuthService, logInService, registerService } from "@/services";
 import { LoaderCircle } from "lucide-react";
 import React, { createContext, Fragment, useEffect, useState } from "react";
 import { toast } from "sonner";
+import icon2 from "../../assets/icon2.png";
 export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [signInFormData, setSignInFormData] = useState(initialSignInFormData);
@@ -123,7 +124,7 @@ const AuthContextProvider = ({ children }) => {
           {loading ? (
             <div>
               <div className="h-screen w-full flex items-center justify-center">
-                <img src="../../assets/icon2.png" />
+                <img src={icon2} />
               </div>
               <span
                 className={`capitalize absolute w-full  bottom-10 text-center font-bold text-xl`}
