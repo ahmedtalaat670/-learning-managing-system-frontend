@@ -14,7 +14,6 @@ import { AuthContext } from "@/context/auth-context";
 import { StudentContext } from "@/context/student-context";
 import {
   createPaymentService,
-  getStudentBoughtCoursesService,
   getStudentViewCourseDetailsByIdService,
 } from "@/services";
 import {
@@ -38,12 +37,8 @@ const CourseDetails = () => {
   const [approvalUrl, setApprovalUrl] = useState("");
   const [isBought, setIsBought] = useState(false);
   const [buyNowButtonLoading, setBuyNowButtonLoading] = useState(false);
-  const {
-    loadingState,
-    setLoadingState,
-    boughtCourses,
-    checkIfTheCourseBought,
-  } = useContext(StudentContext);
+  const { loadingState, setLoadingState, checkIfTheCourseBought } =
+    useContext(StudentContext);
   const { authInformation } = useContext(AuthContext);
   const fetchCourseDetailsById = async () => {
     setLoadingState(true);
@@ -94,6 +89,7 @@ const CourseDetails = () => {
       );
       setApprovalUrl(response?.data?.approveUrl);
     }
+    setBuyNowButtonLoading(false);
   }
   useEffect(() => {
     fetchCourseDetailsById();
@@ -173,7 +169,7 @@ const CourseDetails = () => {
                 <CardTitle>Course Curriculum</CardTitle>
               </CardHeader>
               <CardContent>
-                {courseDetails?.lectures?.map((curriculumItem, index) => (
+                {courseDetails?.lectures?.map((curriculumItem) => (
                   <li
                     className={`flex gap-1 items-center ${
                       curriculumItem.freePreview
