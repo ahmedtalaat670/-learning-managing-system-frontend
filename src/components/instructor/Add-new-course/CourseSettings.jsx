@@ -4,6 +4,7 @@ import MediaProgressbar from "@/components/upload-progress-bar";
 import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import { deleteImageService, uploadMedia } from "@/services";
+import { AxiosHeaders } from "axios";
 import React, { useContext } from "react";
 import { useEffect } from "react";
 
@@ -24,7 +25,7 @@ const CourseSettings = () => {
         file: image,
         userId: authInformation.user?._id,
       };
-      console.log(image);
+      console.log(imageForm);
       try {
         setMediaUploadProgress(true);
         const { data, success } = await uploadMedia(
