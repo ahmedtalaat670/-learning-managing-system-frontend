@@ -19,9 +19,11 @@ const CourseSettings = () => {
   const handleImageInput = async (e) => {
     const image = e.target.files[0];
     if (image) {
-      const imageForm = new FormData();
-      imageForm.append("file", image);
-      imageForm.append("userId", authInformation.user?._id);
+      const imageForm = {
+        file: image,
+        userId: authInformation.user?._id,
+      };
+
       console.log(imageForm);
       try {
         setMediaUploadProgress(true);
