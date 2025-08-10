@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Switch } from "@/components/ui/switch";
 import { curriculumInitialFormData } from "@/config";
+import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import {
   bulkUploadMediaService,
@@ -25,6 +26,7 @@ const Curriculum = () => {
     mediaUploadProgressPercentage,
     setMediaUploadProgressPercentage,
   } = useContext(InstructorContext);
+  const { authInformation } = useContext(AuthContext);
   const [uploadingVideoIndex, setUploadingVideoIndex] = useState([]);
   const [isUploading, setIsUploading] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -61,6 +63,7 @@ const Curriculum = () => {
     if (selectedFile) {
       const videoForm = new FormData();
       videoForm.append("file", selectedFile);
+      videoForm.append("userId", authInformation.user?._id);
       try {
         setMediaUploadProgress(true);
         setUploadingVideoIndex([...uploadingVideoIndex, index]);
@@ -115,6 +118,7 @@ const Curriculum = () => {
     const newFormData = new FormData();
     const filesArray = [...files];
     filesArray.map((file) => newFormData.append("files", file));
+    filesArray.append("userId", authInformation.user?._id);
     setIsUploading(true);
     const { success, data } = await bulkUploadMediaService(
       newFormData,

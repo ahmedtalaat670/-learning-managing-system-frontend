@@ -5,10 +5,12 @@ import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import { deleteImageService, uploadMedia } from "@/services";
 import { AxiosHeaders } from "axios";
-import React, { useContext } from "react";
+import { LoaderCircle } from "lucide-react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 
 const CourseSettings = () => {
+  const [loadingState, setLoadingState] = useState(false);
   const {
     landingFormData,
     setLandingFormData,
@@ -46,6 +48,7 @@ const CourseSettings = () => {
     }
   };
   const handleReplaceTheImage = async () => {
+    setLoadingState(true);
     const { success } = await deleteImageService(landingFormData.image_id);
     if (success) {
       setLandingFormData({
@@ -54,6 +57,7 @@ const CourseSettings = () => {
         image_id: "",
       });
     }
+    setLoadingState(false);
   };
   useEffect(() => {
     console.log(authInformation);
@@ -73,7 +77,9 @@ const CourseSettings = () => {
             <Button
               onClick={handleReplaceTheImage}
               className={"cursor-pointer"}
+              disables={loadingState}
             >
+              {loadingState && <LoaderCircle className="animate-spin" />}
               Replace The Image
             </Button>
             <img src={landingFormData.image} className="w-full " />
