@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import MediaProgressbar from "@/components/upload-progress-bar";
+import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import { deleteImageService, uploadMedia } from "@/services";
 import React, { useContext } from "react";
@@ -14,11 +15,13 @@ const CourseSettings = () => {
     mediaUploadProgressPercentage,
     setMediaUploadProgressPercentage,
   } = useContext(InstructorContext);
+  const { authInformation } = useContext(AuthContext);
   const handleImageInput = async (e) => {
     const image = e.target.files[0];
     if (image) {
       const imageForm = new FormData();
       imageForm.append("file", image);
+      imageForm.append("userId", authInformation.user?._id);
       try {
         setMediaUploadProgress(true);
         const { data, success } = await uploadMedia(
