@@ -22,7 +22,7 @@ const CourseSettings = () => {
     const image = e.target.files[0];
     if (image) {
       const imageForm = {
-        file: image,
+        file: new File(image),
         userId: authInformation.user?._id,
       };
       console.log(imageForm);
