@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: "https://learning-managing-system-backend-qd.vercel.app/",
 });
 
 axiosInstance.interceptors.request.use(
