@@ -5,6 +5,7 @@ import { AuthContext } from "@/context/auth-context";
 import { InstructorContext } from "@/context/instructor-context";
 import { deleteImageService, uploadMedia } from "@/services";
 import React, { useContext } from "react";
+import { useEffect } from "react";
 
 const CourseSettings = () => {
   const {
@@ -55,6 +56,9 @@ const CourseSettings = () => {
       });
     }
   };
+  useEffect(() => {
+    console.log(authInformation);
+  }, []);
   return (
     <Card>
       {mediaUploadProgress ? (
