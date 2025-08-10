@@ -22,6 +22,8 @@ const CourseSettings = () => {
       const imageForm = new FormData();
       imageForm.append("file", image);
       imageForm.append("userId", authInformation.user?._id);
+      console.log(imageForm);
+
       try {
         setMediaUploadProgress(true);
         const { data, success } = await uploadMedia(
