@@ -118,7 +118,7 @@ const Curriculum = () => {
     const newFormData = new FormData();
     const filesArray = [...files];
     filesArray.map((file) => newFormData.append("files", file));
-    filesArray.append("userId", authInformation.user?._id);
+    newFormData.append("userId", authInformation.user?._id);
     setIsUploading(true);
     const { success, data } = await bulkUploadMediaService(
       newFormData,
