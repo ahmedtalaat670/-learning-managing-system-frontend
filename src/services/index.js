@@ -24,6 +24,9 @@ export const uploadMedia = async (formData, onProgressCallback) => {
       );
       onProgressCallback(completedPercent);
     },
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
   });
   return data;
 };
