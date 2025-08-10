@@ -23,13 +23,12 @@ const CourseSettings = () => {
       imageForm.append("file", image);
       imageForm.append("userId", authInformation.user?._id);
       console.log(imageForm);
-
       try {
         setMediaUploadProgress(true);
         const { data, success } = await uploadMedia(
           imageForm,
           setMediaUploadProgressPercentage
-        );
+        ).catch((e) => console.log(e));
         if (success) {
           setLandingFormData({
             ...landingFormData,
