@@ -1,5 +1,5 @@
 import StudentViewHeader from "@/components/student-view/Header";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import banner from "../../assets/banner-img.png";
 import { courseCategories } from "@/config";
 import { Button } from "@/components/ui/button";
@@ -7,16 +7,20 @@ import { getStudentViewCourseService } from "@/services";
 import { toast } from "sonner";
 import { useContext } from "react";
 import { StudentContext } from "@/context/student-context";
+import { LoaderCircle } from "lucide-react";
 const StudentViewHomePage = () => {
   const { coursesList, setCoursesList, checkIfTheCourseBought } =
     useContext(StudentContext);
+  const [loading, setLoading] = useState(false);
   const getAllCourses = async () => {
+    setLoading(true);
     const response = await getStudentViewCourseService().catch((e) =>
       toast(e.response.data.message)
     );
     if (response) {
       setCoursesList(response.data);
     }
+    setLoading(false);
   };
   useEffect(() => {
     getAllCourses();
@@ -52,7 +56,8 @@ const StudentViewHomePage = () => {
       <section className="py-12 px-4 lg:px-8">
         <h2 className="text-2xl font-bold mb-6">Featured Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {coursesList && coursesList.length > 0 ? (
+          {loading && <LoaderCircle className="h-10 w-10 animate-spin" />}
+          {!loading && coursesList && coursesList.length > 0 ? (
             coursesList.map((courseItem) => (
               <div
                 key={courseItem?.title}
