@@ -65,7 +65,7 @@ const InstructorViewHomePage = () => {
                   <SlidersHorizontal />
                 </SheetTrigger>
                 <SheetContent className={"flex items-center"}>
-                  <aside className="w-64 shadow-md">
+                  <aside className="w-full">
                     <div className="p-2">
                       <h2 className="text-2xl font-bold ">Instructor View</h2>
                       <nav className="flex flex-col space-y-4 mt-5">
