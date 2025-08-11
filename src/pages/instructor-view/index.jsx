@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const InstructorViewHomePage = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
+  const [isOpen, setIsOpen] = useState(false);
   const { handleLogOut, windowWidth } = useContext(AuthContext);
 
   const menuList = [
@@ -60,8 +61,11 @@ const InstructorViewHomePage = () => {
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
             {windowWidth < 768 && (
-              <Sheet>
-                <SheetTrigger className={"mb-5"}>
+              <Sheet open={isOpen}>
+                <SheetTrigger
+                  onClick={() => setIsOpen(true)}
+                  className={"mb-5"}
+                >
                   <SlidersHorizontal />
                 </SheetTrigger>
                 <SheetContent className={"flex items-center"}>
@@ -79,7 +83,10 @@ const InstructorViewHomePage = () => {
                             onClick={
                               menuItem.value === "logout"
                                 ? () => handleLogOut()
-                                : () => setActiveButton(menuItem.value)
+                                : () => {
+                                    setActiveButton(menuItem.value);
+                                    setIsOpen(false);
+                                  }
                             }
                           >
                             <menuItem.icon />
