@@ -33,7 +33,7 @@ const InstructorViewHomePage = () => {
   ];
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      <aside className="w-64 hidden md:block shadow-md">
+      <aside className="w-64 hidden lg:block shadow-md">
         <div className="p-2">
           <h2 className="text-2xl font-bold ">Instructor View</h2>
           <nav className="flex flex-col space-y-4 mt-5">
