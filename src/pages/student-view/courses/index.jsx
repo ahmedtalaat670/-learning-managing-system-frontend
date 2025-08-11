@@ -77,6 +77,7 @@ const StudentViewCoursesPage = () => {
     setSearchParams(new URLSearchParams(queryParams));
   }, [filters]);
   useEffect(() => {
+    setCoursesList([]);
     if (filters !== null && sort !== null) getCourses();
   }, [filters, sort]);
 
