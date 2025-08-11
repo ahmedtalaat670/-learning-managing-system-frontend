@@ -33,7 +33,7 @@ const InstructorViewHomePage = () => {
   ];
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      <aside className="w-64 hidden lg:block shadow-md">
+      <aside className="w-64 hidden md:block shadow-md">
         <div className="p-2">
           <h2 className="text-2xl font-bold ">Instructor View</h2>
           <nav className="flex flex-col space-y-4 mt-5">
@@ -59,7 +59,7 @@ const InstructorViewHomePage = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-            {windowWidth < 992 && (
+            {windowWidth < 768 && (
               <Sheet>
                 <SheetTrigger className={"mb-5"}>
                   <SlidersHorizontal />
