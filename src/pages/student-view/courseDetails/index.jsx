@@ -90,11 +90,9 @@ const CourseDetails = () => {
       );
       setApprovalUrl(response?.data?.approveUrl);
     }
-    setBuyNowButtonLoading(false);
   }
   useEffect(() => {
     fetchCourseDetailsById();
-    console.log(location);
   }, []);
   useEffect(() => {
     if (authInformation.authentication) {
@@ -110,6 +108,9 @@ const CourseDetails = () => {
   useEffect(() => {
     if (displayCurrentVideoFreePreview !== null) setShowFreePreviewDialog(true);
   }, [displayCurrentVideoFreePreview]);
+  useEffect(() => {
+    if (buyNowButtonLoading) setBuyNowButtonLoading(false);
+  }, [location.pathname]);
   if (approvalUrl !== "") {
     window.location.href = approvalUrl;
   }
