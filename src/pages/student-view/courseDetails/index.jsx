@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { toast } from "sonner";
 
 const CourseDetails = () => {
@@ -37,6 +37,7 @@ const CourseDetails = () => {
   const [approvalUrl, setApprovalUrl] = useState("");
   const [isBought, setIsBought] = useState(false);
   const [buyNowButtonLoading, setBuyNowButtonLoading] = useState(false);
+  const location = useLocation();
   const { loadingState, setLoadingState, checkIfTheCourseBought } =
     useContext(StudentContext);
   const { authInformation } = useContext(AuthContext);
@@ -93,6 +94,7 @@ const CourseDetails = () => {
   }
   useEffect(() => {
     fetchCourseDetailsById();
+    console.log(location);
   }, []);
   useEffect(() => {
     if (authInformation.authentication) {
