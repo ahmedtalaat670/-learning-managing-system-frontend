@@ -173,7 +173,7 @@ const Curriculum = () => {
     console.log(mediaUploadProgressPercentage);
   }, [mediaUploadProgressPercentage]);
   return (
-    <Card>
+    <Card className={"sm:w-full"}>
       <CardHeader className="flex flex-col gap-3 md:flex-row md:justify-between">
         <h1 className="text-3xl capitalize">curriculum</h1>
         <Button className={"cursor-pointer"} onClick={handleBulkUploadButton}>
