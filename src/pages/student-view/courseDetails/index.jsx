@@ -90,6 +90,7 @@ const CourseDetails = () => {
       );
       setApprovalUrl(response?.data?.approveUrl);
     }
+    setBuyNowButtonLoading(false);
   }
   useEffect(() => {
     fetchCourseDetailsById();
