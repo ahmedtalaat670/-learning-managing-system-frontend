@@ -22,13 +22,12 @@ const AuthContextProvider = ({ children }) => {
     event.preventDefault();
     const response = await registerService(signUpFormData).catch((error) => {
       toast(error.response.data.message);
+      setButtonLoading(false);
     });
     if (response) {
       setLoading(true);
       setSignUpFormData(initialSignUpFormData);
       toast("You created an account successfully");
-    } else {
-      setButtonLoading(false);
     }
     setLoading(false);
     setButtonLoading(false);
@@ -39,6 +38,7 @@ const AuthContextProvider = ({ children }) => {
     event.preventDefault();
     const response = await logInService(signInFormData).catch((error) => {
       toast(error.response.data.message);
+      setButtonLoading(false);
     });
     if (response) {
       setLoading(true);
@@ -56,8 +56,6 @@ const AuthContextProvider = ({ children }) => {
           response.data.user.role === "instructor" ? " instructor " : " "
         }${response.data.user.userName}`
       );
-    } else {
-      setButtonLoading(false);
     }
     setLoading(false);
     setButtonLoading(true);
