@@ -31,11 +31,11 @@ const AuthContextProvider = ({ children }) => {
   };
   const handleLoginUser = async (event) => {
     event.preventDefault();
-    setLoading(true);
     const response = await logInService(signInFormData).catch((error) => {
       toast(error.response.data.message);
     });
     if (response) {
+      setLoading(true);
       sessionStorage.setItem(
         "accessToken",
         JSON.stringify(response.data.accessToken)
