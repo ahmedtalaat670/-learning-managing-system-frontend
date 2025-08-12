@@ -42,10 +42,7 @@ const InstructorProvider = ({ children }) => {
       authInformation.user?.role === "instructor"
     )
       getInstructorCourses();
-  }, []);
-  useEffect(() => {
-    console.log(instructorCourses);
-  }, [instructorCourses.length]);
+  }, [authInformation.authentication]);
   return (
     <InstructorContext.Provider
       value={{
