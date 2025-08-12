@@ -5,15 +5,18 @@ import App from "./App.jsx";
 import AuthContextProvider from "./context/auth-context";
 import InstructorProvider from "./context/instructor-context";
 import StudentContextProvider from "./context/student-context";
+import StandardErrorBoundary from "./pages/error-boundary";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthContextProvider>
-      <InstructorProvider>
-        <StudentContextProvider>
-          <App />
-        </StudentContextProvider>
-      </InstructorProvider>
-    </AuthContextProvider>
+    <StandardErrorBoundary>
+      <AuthContextProvider>
+        <InstructorProvider>
+          <StudentContextProvider>
+            <App />
+          </StudentContextProvider>
+        </InstructorProvider>
+      </AuthContextProvider>
+    </StandardErrorBoundary>
   </StrictMode>
 );
