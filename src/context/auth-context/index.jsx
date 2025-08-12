@@ -24,11 +24,9 @@ const AuthContextProvider = ({ children }) => {
       toast(error.response.data.message);
     });
     if (response) {
-      setLoading(true);
       setSignUpFormData(initialSignUpFormData);
       toast("You created an account successfully");
     }
-    setLoading(false);
     setButtonLoading(false);
     console.log(response);
   };
