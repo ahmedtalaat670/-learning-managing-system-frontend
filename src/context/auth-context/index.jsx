@@ -21,8 +21,8 @@ const AuthContextProvider = ({ children }) => {
     setButtonLoading(true);
     event.preventDefault();
     const response = await registerService(signUpFormData).catch((error) => {
-      toast(error.response.data.message);
       setButtonLoading(false);
+      toast(error.response.data.message);
     });
     if (response) {
       setLoading(true);
@@ -37,8 +37,8 @@ const AuthContextProvider = ({ children }) => {
     setButtonLoading(true);
     event.preventDefault();
     const response = await logInService(signInFormData).catch((error) => {
-      toast(error.response.data.message);
       setButtonLoading(false);
+      toast(error.response.data.message);
     });
     if (response) {
       setLoading(true);
