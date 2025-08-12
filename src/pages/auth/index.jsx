@@ -26,7 +26,7 @@ const AuthPage = () => {
     setSignUpFormData,
     handleRegisterUser,
     handleLoginUser,
-    loading,
+    buttonLoading,
   } = useContext(AuthContext);
   const validateSignInForm = () => {
     return (
@@ -47,14 +47,14 @@ const AuthPage = () => {
     if (!validateSignUpForm()) {
       return true;
     }
-    if (loading) return true;
+    if (buttonLoading) return true;
     return false;
   };
   const handleDisablingTheSignInButton = () => {
     if (!validateSignInForm()) {
       return true;
     }
-    if (loading) return true;
+    if (buttonLoading) return true;
     return false;
   };
   return (

@@ -15,8 +15,10 @@ const AuthContextProvider = ({ children }) => {
     user: null,
   });
   const [loading, setLoading] = useState(true);
+  const [buttonLoading, setButtonLoading] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const handleRegisterUser = async (event) => {
+    setButtonLoading(true);
     event.preventDefault();
     setLoading(true);
     const response = await registerService(signUpFormData).catch((error) => {
@@ -27,9 +29,11 @@ const AuthContextProvider = ({ children }) => {
       toast("You created an account successfully");
     }
     setLoading(false);
+    setButtonLoading(false);
     console.log(response);
   };
   const handleLoginUser = async (event) => {
+    setButtonLoading(true);
     event.preventDefault();
     const response = await logInService(signInFormData).catch((error) => {
       toast(error.response.data.message);
@@ -52,6 +56,7 @@ const AuthContextProvider = ({ children }) => {
       );
     }
     setLoading(false);
+    setButtonLoading(true);
   };
   const handleCheckAuthUser = async () => {
     setLoading(true);
@@ -117,6 +122,7 @@ const AuthContextProvider = ({ children }) => {
         loading,
         handleLogOut,
         windowWidth,
+        buttonLoading,
       }}
     >
       <Fragment>
