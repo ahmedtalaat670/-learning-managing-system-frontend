@@ -249,7 +249,8 @@ const CourseDetails = () => {
             <div className="aspect-video rounded-lg flex items-center justify-center">
               <ReactPlayer
                 url={displayCurrentVideoFreePreview}
-                className="w-full"
+                width={"450"}
+                height={"500"}
                 controls
               />
             </div>
