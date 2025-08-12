@@ -44,17 +44,15 @@ const AuthPage = () => {
     );
   };
   const handleDisablingTheSignUpButton = () => {
-    if (!validateSignUpForm()) {
+    if (!validateSignUpForm() || buttonLoading) {
       return true;
     }
-    if (buttonLoading) return true;
     return false;
   };
   const handleDisablingTheSignInButton = () => {
-    if (!validateSignInForm()) {
+    if (!validateSignInForm() || buttonLoading) {
       return true;
     }
-    if (buttonLoading) return true;
     return false;
   };
   return (
