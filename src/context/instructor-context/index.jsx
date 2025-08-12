@@ -43,6 +43,9 @@ const InstructorProvider = ({ children }) => {
     )
       getInstructorCourses();
   }, []);
+  useEffect(() => {
+    console.log(instructorCourses);
+  }, [instructorCourses.length]);
   return (
     <InstructorContext.Provider
       value={{
