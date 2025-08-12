@@ -11,7 +11,7 @@ import { AuthContext } from "@/context/auth-context";
 import { Value } from "@radix-ui/react-select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import { GraduationCap } from "lucide-react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const AuthPage = () => {
@@ -55,6 +55,9 @@ const AuthPage = () => {
     }
     return false;
   };
+  useEffect(() => {
+    console.log(buttonLoading);
+  }, [buttonLoading]);
   return (
     <div className="flex flex-col min-h-screen">
       <header className="flex items-center border-b h-14 px-4 lg:px-6">
