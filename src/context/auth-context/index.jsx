@@ -20,13 +20,15 @@ const AuthContextProvider = ({ children }) => {
   const handleRegisterUser = async (event) => {
     setButtonLoading(true);
     event.preventDefault();
-    setLoading(true);
     const response = await registerService(signUpFormData).catch((error) => {
       toast(error.response.data.message);
     });
     if (response) {
+      setLoading(true);
       setSignUpFormData(initialSignUpFormData);
       toast("You created an account successfully");
+    } else {
+      setButtonLoading(false);
     }
     setLoading(false);
     setButtonLoading(false);
@@ -54,6 +56,8 @@ const AuthContextProvider = ({ children }) => {
           response.data.user.role === "instructor" ? " instructor " : " "
         }${response.data.user.userName}`
       );
+    } else {
+      setButtonLoading(false);
     }
     setLoading(false);
     setButtonLoading(true);
