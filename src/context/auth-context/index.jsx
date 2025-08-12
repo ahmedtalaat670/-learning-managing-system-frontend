@@ -21,7 +21,6 @@ const AuthContextProvider = ({ children }) => {
     setButtonLoading(true);
     event.preventDefault();
     const response = await registerService(signUpFormData).catch((error) => {
-      setButtonLoading(false);
       toast(error.response.data.message);
     });
     if (response) {
@@ -37,7 +36,6 @@ const AuthContextProvider = ({ children }) => {
     setButtonLoading(true);
     event.preventDefault();
     const response = await logInService(signInFormData).catch((error) => {
-      setButtonLoading(false);
       toast(error.response.data.message);
     });
     if (response) {
@@ -58,7 +56,7 @@ const AuthContextProvider = ({ children }) => {
       );
     }
     setLoading(false);
-    setButtonLoading(true);
+    setButtonLoading(false);
   };
   const handleCheckAuthUser = async () => {
     setLoading(true);
