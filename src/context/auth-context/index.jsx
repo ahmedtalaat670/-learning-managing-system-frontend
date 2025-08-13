@@ -1,11 +1,9 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { Toaster } from "@/components/ui/sonner";
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { checkAuthService, logInService, registerService } from "@/services";
-import { LoaderCircle } from "lucide-react";
 import React, { createContext, Fragment, useEffect, useState } from "react";
 import { toast } from "sonner";
-import icon2 from "../../assets/icon2.png";
+import icon2 from "../../../public/icon2.png";
 export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [signInFormData, setSignInFormData] = useState(initialSignInFormData);

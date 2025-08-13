@@ -1,6 +1,6 @@
 import StudentViewHeader from "@/components/student-view/Header";
 import React, { useEffect, useState } from "react";
-import banner from "../../assets/banner-img.png";
+import banner from "../../../public/banner-img.png";
 import { courseCategories } from "@/config";
 import { Button } from "@/components/ui/button";
 import { getStudentViewCourseService } from "@/services";
