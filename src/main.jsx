@@ -9,14 +9,14 @@ import StandardErrorBoundary from "./pages/error-boundary";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <StandardErrorBoundary>
-      <AuthContextProvider>
-        <InstructorProvider>
-          <StudentContextProvider>
+    <AuthContextProvider>
+      <InstructorProvider>
+        <StudentContextProvider>
+          <StandardErrorBoundary>
             <App />
-          </StudentContextProvider>
-        </InstructorProvider>
-      </AuthContextProvider>
-    </StandardErrorBoundary>
+          </StandardErrorBoundary>
+        </StudentContextProvider>
+      </InstructorProvider>
+    </AuthContextProvider>
   </StrictMode>
 );
