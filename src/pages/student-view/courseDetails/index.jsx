@@ -242,15 +242,7 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent
-            className={`${
-              windowWidth < 768
-                ? "350px"
-                : windowWidth < 992
-                ? "350px"
-                : "550px"
-            }`}
-          >
+          <DialogContent className={`sm:max-w-[425px]`}>
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
