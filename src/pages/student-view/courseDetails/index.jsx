@@ -246,7 +246,7 @@ const CourseDetails = () => {
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
-            <div className="aspect-video rounded-lg flex items-center justify-center">
+            <div className="rounded-lg flex items-center justify-center">
               <ReactPlayer
                 url={displayCurrentVideoFreePreview}
                 controls
