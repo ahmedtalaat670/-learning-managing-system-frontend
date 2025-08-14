@@ -242,7 +242,15 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent>
+          <DialogContent
+            className={`${
+              windowWidth < 768
+                ? "350px"
+                : windowWidth < 992
+                ? "350px"
+                : "550px"
+            }`}
+          >
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
@@ -252,9 +260,9 @@ const CourseDetails = () => {
                 controls
                 width={`${
                   windowWidth < 768
-                    ? "250px"
+                    ? "300px"
                     : windowWidth < 992
-                    ? "400px"
+                    ? "300px"
                     : "500px"
                 }`}
               />
