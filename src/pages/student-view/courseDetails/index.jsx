@@ -250,7 +250,7 @@ const CourseDetails = () => {
               <ReactPlayer
                 url={displayCurrentVideoFreePreview}
                 controls
-                className="w-[200px]"
+                width={"100"}
               />
             </div>
             <div className="flex flex-col gap-2">
