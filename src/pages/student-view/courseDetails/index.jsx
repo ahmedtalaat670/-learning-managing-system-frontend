@@ -242,15 +242,14 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent className="w-[800px]">
+          <DialogContent className="w-full md:w-[800px]">
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
             <div className="aspect-video rounded-lg flex items-center justify-center">
               <ReactPlayer
                 url={displayCurrentVideoFreePreview}
-                width={"450"}
-                height={"500"}
+                className="max-w-full"
                 controls
               />
             </div>

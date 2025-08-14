@@ -54,6 +54,7 @@ const App = () => {
       element: <NotFoundPage />,
     },
   ]);
+  
   return <RouterProvider router={router} />;
 };
 
