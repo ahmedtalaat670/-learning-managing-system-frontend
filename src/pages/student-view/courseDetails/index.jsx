@@ -242,12 +242,16 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent>
+          <DialogContent className={"w-[450ox]"}>
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
             <div className="aspect-video rounded-lg flex items-center justify-center">
-              <ReactPlayer url={displayCurrentVideoFreePreview} controls />
+              <ReactPlayer
+                url={displayCurrentVideoFreePreview}
+                controls
+                className="w-full"
+              />
             </div>
             <div className="flex flex-col gap-2">
               {courseDetails?.lectures
