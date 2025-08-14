@@ -247,11 +247,7 @@ const CourseDetails = () => {
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
             <div className="aspect-video rounded-lg flex items-center justify-center">
-              <ReactPlayer
-                url={displayCurrentVideoFreePreview}
-                controls
-                width={90}
-              />
+              <ReactPlayer url={displayCurrentVideoFreePreview} controls />
             </div>
             <div className="flex flex-col gap-2">
               {courseDetails?.lectures
@@ -268,7 +264,7 @@ const CourseDetails = () => {
             <DialogFooter className="sm:justify-start">
               <DialogClose asChild>
                 <Button
-                  className={"cursor-pointer w-full"}
+                  className={"cursor-pointer"}
                   type="button"
                   variant="secondary"
                 >
