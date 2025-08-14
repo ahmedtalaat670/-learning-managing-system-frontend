@@ -247,7 +247,11 @@ const CourseDetails = () => {
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
             <div className="aspect-video rounded-lg flex items-center justify-center">
-              <ReactPlayer url={displayCurrentVideoFreePreview} controls />
+              <ReactPlayer
+                url={displayCurrentVideoFreePreview}
+                controls
+                width={`${windowWidth < 768 ? "300px" : "450px"}`}
+              />
             </div>
             <div className="flex flex-col gap-2">
               {courseDetails?.lectures
