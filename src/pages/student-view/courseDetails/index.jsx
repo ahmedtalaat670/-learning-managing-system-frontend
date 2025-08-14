@@ -242,7 +242,7 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent className="w-full md:w-[800px]">
+          <DialogContent className="w-full">
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
