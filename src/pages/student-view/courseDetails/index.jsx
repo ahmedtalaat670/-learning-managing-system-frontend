@@ -39,7 +39,7 @@ const CourseDetails = () => {
   const location = useLocation();
   const { loadingState, setLoadingState, checkIfTheCourseBought } =
     useContext(StudentContext);
-  const { authInformation } = useContext(AuthContext);
+  const { authInformation, windowWidth } = useContext(AuthContext);
   const fetchCourseDetailsById = async () => {
     setLoadingState(true);
     const response = await getStudentViewCourseDetailsByIdService(params.id);
@@ -242,7 +242,7 @@ const CourseDetails = () => {
             setDisplayCurrentVideoFreePreview(null);
           }}
         >
-          <DialogContent className={"w-[450px]"}>
+          <DialogContent>
             <DialogHeader>
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
@@ -250,7 +250,13 @@ const CourseDetails = () => {
               <ReactPlayer
                 url={displayCurrentVideoFreePreview}
                 controls
-                width={"100"}
+                width={`${
+                  windowWidth < 768
+                    ? "250px"
+                    : windowWidth < 992
+                    ? "400px"
+                    : "500px"
+                }`}
               />
             </div>
             <div className="flex flex-col gap-2">
