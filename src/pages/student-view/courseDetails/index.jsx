@@ -247,11 +247,7 @@ const CourseDetails = () => {
               <DialogTitle>Course Preview</DialogTitle>
             </DialogHeader>
             <div className="aspect-video rounded-lg flex items-center justify-center">
-              <ReactPlayer
-                url={displayCurrentVideoFreePreview}
-                className="max-w-full"
-                controls
-              />
+              <ReactPlayer url={displayCurrentVideoFreePreview} controls />
             </div>
             <div className="flex flex-col gap-2">
               {courseDetails?.lectures
