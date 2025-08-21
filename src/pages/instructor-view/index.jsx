@@ -63,7 +63,10 @@ const InstructorViewHomePage = () => {
             {windowWidth < 768 && (
               <Sheet open={isOpen}>
                 <SheetTrigger
-                  onClick={() => setIsOpen(true)}
+                  onClick={(e) => {
+                    setIsOpen(true);
+                    console.log(e.target);
+                  }}
                   className={"mb-5"}
                 >
                   <SlidersHorizontal />
