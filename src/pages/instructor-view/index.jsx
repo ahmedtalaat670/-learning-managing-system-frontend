@@ -34,7 +34,7 @@ const InstructorViewHomePage = () => {
   ];
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      console.log(e.target);
+      console.log(e.target.classList);
     });
     return () => {
       window.removeEventListener("click", (e) => {
