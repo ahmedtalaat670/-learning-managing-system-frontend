@@ -34,7 +34,7 @@ const InstructorViewHomePage = () => {
   ];
   useEffect(() => {
     window.addEventListener("click", (e) => {
-      console.log(e.target.classList);
+      if (e.target.classList.includes("lucide-x")) setIsOpen(false);
     });
     return () => {
       window.removeEventListener("click", (e) => {
