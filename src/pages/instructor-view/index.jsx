@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AuthContext } from "@/context/auth-context";
 import { Tabs, TabsContent } from "@radix-ui/react-tabs";
 import { BarChart, Book, LogOut, SlidersHorizontal } from "lucide-react";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const InstructorViewHomePage = () => {
@@ -32,6 +32,16 @@ const InstructorViewHomePage = () => {
       component: null,
     },
   ];
+  useEffect(() => {
+    window.addEventListener("click", (e) => {
+      console.log(e.target);
+    });
+    return () => {
+      window.removeEventListener("click", (e) => {
+        console.log(e.target);
+      });
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-gray-100 flex">
       <aside className="w-64 hidden md:block shadow-md">
@@ -61,7 +71,7 @@ const InstructorViewHomePage = () => {
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
             {windowWidth < 768 && (
-              <Sheet onClick={(e) => console.log(e.target)} open={isOpen}>
+              <Sheet open={isOpen}>
                 <SheetTrigger
                   onClick={() => {
                     setIsOpen(true);
