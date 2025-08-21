@@ -61,11 +61,10 @@ const InstructorViewHomePage = () => {
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
             {windowWidth < 768 && (
-              <Sheet open={isOpen}>
+              <Sheet onClick={(e) => console.log(e.target)} open={isOpen}>
                 <SheetTrigger
-                  onClick={(e) => {
+                  onClick={() => {
                     setIsOpen(true);
-                    console.log(e.target);
                   }}
                   className={"mb-5"}
                 >
