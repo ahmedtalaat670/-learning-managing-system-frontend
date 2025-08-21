@@ -32,16 +32,7 @@ const InstructorViewHomePage = () => {
       component: null,
     },
   ];
-  useEffect(() => {
-    window.addEventListener("click", (e) => {
-      console.log(e.target);
-    });
-    return () => {
-      window.removeEventListener("click", (e) => {
-        console.log(e.target);
-      });
-    };
-  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100 flex">
       <aside className="w-64 hidden md:block shadow-md">
@@ -71,13 +62,8 @@ const InstructorViewHomePage = () => {
           <div className="flex justify-between">
             <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
             {windowWidth < 768 && (
-              <Sheet open={isOpen}>
-                <SheetTrigger
-                  onClick={() => {
-                    setIsOpen(true);
-                  }}
-                  className={"mb-5"}
-                >
+              <Sheet>
+                <SheetTrigger className={"mb-5"}>
                   <SlidersHorizontal />
                 </SheetTrigger>
                 <SheetContent className={"flex items-center"}>
@@ -97,7 +83,6 @@ const InstructorViewHomePage = () => {
                                 ? () => handleLogOut()
                                 : () => {
                                     setActiveButton(menuItem.value);
-                                    setIsOpen(false);
                                   }
                             }
                           >
