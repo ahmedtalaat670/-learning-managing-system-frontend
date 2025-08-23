@@ -4,12 +4,11 @@ import { Button } from "@/components/ui/button";
 import { AuthContext } from "@/context/auth-context";
 import { Tabs, TabsContent } from "@radix-ui/react-tabs";
 import { BarChart, Book, LogOut, SlidersHorizontal } from "lucide-react";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const InstructorViewHomePage = () => {
   const [activeButton, setActiveButton] = useState("dashboard");
-  const [isOpen, setIsOpen] = useState(false);
   const { handleLogOut, windowWidth } = useContext(AuthContext);
 
   const menuList = [

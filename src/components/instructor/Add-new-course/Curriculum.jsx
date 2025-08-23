@@ -117,14 +117,13 @@ const Curriculum = () => {
     const files = e.target.files;
     const newFormData = new FormData();
     const filesArray = [...files];
-    newFormData.append("files", filesArray);
+    filesArray.map((file) => newFormData.append("files", file));
     newFormData.append("userId", authInformation.user?._id);
     setIsUploading(true);
     const { success, data } = await bulkUploadMediaService(
       newFormData,
       setMediaUploadProgressPercentage
     );
-    console.log(newFormData);
     if (success) {
       if (curriculumFormData[curriculumFormData.length - 1].videoUrl === "") {
         const cpycurriculumFormData = [...curriculumFormData];
