@@ -151,6 +151,7 @@ const Curriculum = () => {
         }));
         setCurriculumFormData([...curriculumFormData, ...newLectures]);
       }
+      console.log(newFormData);
     }
     setIsUploading(false);
     setMediaUploadProgressPercentage(0);
