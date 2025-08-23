@@ -124,6 +124,7 @@ const Curriculum = () => {
       newFormData,
       setMediaUploadProgressPercentage
     );
+    console.log(newFormData);
     if (success) {
       if (curriculumFormData[curriculumFormData.length - 1].videoUrl === "") {
         const cpycurriculumFormData = [...curriculumFormData];
@@ -151,7 +152,6 @@ const Curriculum = () => {
         }));
         setCurriculumFormData([...curriculumFormData, ...newLectures]);
       }
-      console.log(newFormData);
     }
     setIsUploading(false);
     setMediaUploadProgressPercentage(0);
