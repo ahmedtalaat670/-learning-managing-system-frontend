@@ -112,8 +112,8 @@ const CourseDetails = () => {
     if (buyNowButtonLoading) setBuyNowButtonLoading(false);
   }, [location.pathname]);
   useEffect(() => {
-    setApprovalUrl("");
-  }, []);
+    if (location.pathname.includes("details")) setApprovalUrl("");
+  });
   if (approvalUrl !== "") {
     window.location.href = approvalUrl;
   }
