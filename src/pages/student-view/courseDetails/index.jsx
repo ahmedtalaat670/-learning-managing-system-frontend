@@ -125,7 +125,7 @@ const CourseDetails = () => {
           <LoaderCircle className="animate-spin h-15 w-15" />
         </div>
       )}
-      <div className="mx-auto p-4">
+      <div className="mx-auto px-4">
         <StudentViewHeader />
         <div className="bg-gray-900 text-white p-8 rounded-t-lg mt-5">
           <h1 className="text-3xl font-bold mb-4 capitalize">
