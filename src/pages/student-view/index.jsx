@@ -34,7 +34,7 @@ const StudentViewHomePage = () => {
         setAnimated(false);
       }, 100);
     }
-  }, [coursesList.length]);
+  }, [loading]);
   return (
     <div>
       <StudentViewHeader />
