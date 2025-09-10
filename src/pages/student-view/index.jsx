@@ -13,7 +13,7 @@ const StudentViewHomePage = () => {
   const { coursesList, setCoursesList, checkIfTheCourseBought } =
     useContext(StudentContext);
   const [loading, setLoading] = useState(false);
-  const [test, setTest] = useState(true);
+  const [animated, setAnimated] = useState(true);
   const getAllCourses = async () => {
     setLoading(true);
     const response = await getStudentViewCourseService().catch((e) =>
@@ -23,12 +23,14 @@ const StudentViewHomePage = () => {
       setCoursesList(response.data);
     }
     setLoading(false);
-    setTest(false);
   };
   useEffect(() => {
     getAllCourses();
     setWelcome(false);
   }, []);
+  useEffect(() => {
+    if (coursesList.length) setAnimated(false);
+  }, [coursesList.length]);
   return (
     <div>
       <StudentViewHeader />
@@ -75,7 +77,7 @@ const StudentViewHomePage = () => {
               <div
                 key={courseItem?.title}
                 className={`border rounded-lg overflow-hidden shadow transition-all duration-[1s] ${
-                  test && "translate-y-5 opacity-0"
+                  animated && "translate-y-5 opacity-0"
                 }`}
               >
                 <img
