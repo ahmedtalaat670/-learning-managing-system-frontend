@@ -41,6 +41,7 @@ const StudentViewCoursesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [sort, setSort] = useState("price-lowtohigh");
   const [coursesList, setCoursesList] = useState([]);
+  const [animated, setAnimated] = useState(true);
   const { windowWidth, filters, setFilters, checkIfTheCourseBought } =
     useContext(StudentContext);
   const navigate = useNavigate();
@@ -85,7 +86,9 @@ const StudentViewCoursesPage = () => {
     setSort("price-lowtohigh");
     setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
   }, []);
-
+  useEffect(() => {
+    if (coursesList.length) setAnimated(false);
+  }, [coursesList.length]);
   return (
     <div>
       <StudentViewHeader />
@@ -211,7 +214,9 @@ const StudentViewCoursesPage = () => {
               {coursesList && coursesList.length > 0 ? (
                 coursesList.map((courseItem) => (
                   <Card
-                    className="cursor-pointer "
+                    className={`cursor-pointer transition-all duration-1000 ${
+                      animated && "translate-x-5 opacity-0"
+                    }`}
                     key={courseItem?._id}
                     onClick={() => {
                       navigate(`/courses/details/${courseItem._id}`);

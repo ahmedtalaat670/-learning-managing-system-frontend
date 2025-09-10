@@ -36,7 +36,7 @@ const StudentViewHomePage = () => {
       <StudentViewHeader />
       <section className="flex flex-col lg:flex-row justify-between items-center px-4 py-5 md:px-8 md:py-10 gap-5">
         <div
-          className={`transition-all duration-700 ${
+          className={`transition-all duration-1000 ${
             welcome && "-translate-x-5 opacity-0"
           }`}
         >
