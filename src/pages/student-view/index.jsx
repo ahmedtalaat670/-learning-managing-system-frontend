@@ -73,8 +73,8 @@ const StudentViewHomePage = () => {
               coursesList.map((courseItem) => (
                 <div
                   key={courseItem?.title}
-                  className={`border rounded-lg overflow-hidden shadow duration-700 ${
-                    loading && "translate-y-5"
+                  className={`border rounded-lg overflow-hidden shadow transition-all duration-700 ${
+                    loading && "translate-y-5 opacity-0"
                   }`}
                 >
                   <img
