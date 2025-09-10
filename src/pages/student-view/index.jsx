@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { StudentContext } from "@/context/student-context";
 import { LoaderCircle } from "lucide-react";
 const StudentViewHomePage = () => {
+  const [welcome, setWelcome] = useState(true);
   const { coursesList, setCoursesList, checkIfTheCourseBought } =
     useContext(StudentContext);
   const [loading, setLoading] = useState(false);
@@ -24,12 +25,17 @@ const StudentViewHomePage = () => {
   };
   useEffect(() => {
     getAllCourses();
+    setWelcome(false);
   }, []);
   return (
     <div>
       <StudentViewHeader />
       <section className="flex flex-col lg:flex-row justify-between items-center px-4 py-5 md:px-8 md:py-10 gap-5">
-        <div>
+        <div
+          className={`transition-all duration-700 ${
+            welcome && "-translate-x-5 opacity-0"
+          }`}
+        >
           <h3 className="text-2xl md:text-4xl font-bold mb-2">
             Learning that gets you
           </h3>
@@ -37,7 +43,12 @@ const StudentViewHomePage = () => {
             skills for your present and your future. Get Started with us
           </p>
         </div>
-        <img src={banner} className="w-[350px] sm:w-[600px] md:w-[700px]" />
+        <img
+          src={banner}
+          className={`w-[350px] sm:w-[600px] md:w-[700px] transition-all duration-700 ${
+            welcome && "translate-x-5 opacity-0"
+          }`}
+        />
       </section>
       <section className="py-8 px-4 lg:px-8 bg-gray-100">
         <h2 className="text-2xl font-bold mb-6">Course Categories</h2>
@@ -62,7 +73,9 @@ const StudentViewHomePage = () => {
               coursesList.map((courseItem) => (
                 <div
                   key={courseItem?.title}
-                  className="border rounded-lg overflow-hidden shadow"
+                  className={`border rounded-lg overflow-hidden shadow duration-700 ${
+                    loading && "translate-y-5"
+                  }`}
                 >
                   <img
                     src={courseItem?.image}
