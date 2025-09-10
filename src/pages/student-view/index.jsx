@@ -77,7 +77,7 @@ const StudentViewHomePage = () => {
               <div
                 key={courseItem?.title}
                 className={`border rounded-lg overflow-hidden shadow transition-all duration-[1s] ${
-                  animated && "-translate-y-5 opacity-0"
+                  animated && "translate-y-5 opacity-0"
                 }`}
               >
                 <img
