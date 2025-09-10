@@ -87,7 +87,11 @@ const StudentViewCoursesPage = () => {
     setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
   }, []);
   useEffect(() => {
-    if (coursesList.length) setAnimated(false);
+    if (coursesList.length) {
+      window.setTimeout(() => {
+        setAnimated(false);
+      }, 100);
+    }
   }, [coursesList.length]);
   return (
     <div>
@@ -214,8 +218,8 @@ const StudentViewCoursesPage = () => {
               {coursesList && coursesList.length > 0 ? (
                 coursesList.map((courseItem) => (
                   <Card
-                    className={`cursor-pointer transition-all duration-[1s] ${
-                      animated && `translate-x-10 opacity-0`
+                    className={`cursor-pointer transition-all duration-700 ${
+                      animated && `translate-x-5 opacity-0`
                     }`}
                     key={courseItem?._id}
                     onClick={() => {
