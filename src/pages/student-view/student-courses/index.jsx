@@ -17,23 +17,21 @@ const StudentCourses = () => {
     }, 100);
   }, []);
   useEffect(() => {
-    if (loadingState) {
-      setAnimated(true);
-    } else {
+    if (loadingState) setAnimated(true);
+    if (!loadingState) {
       window.setTimeout(() => {
         setAnimated(false);
       }, 100);
     }
   }, [loadingState]);
-  if (loadingState) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-[rgb(240,240,240,0.5)] z-10 absolute top-0 left-0">
-        <LoaderCircle className="animate-spin h-10 w-10" />
-      </div>
-    );
-  }
+
   return (
     <div>
+      {loadingState && (
+        <div className="w-full h-full flex items-center justify-center bg-[rgb(240,240,240,0.5)] z-10 absolute top-0 left-0">
+          <LoaderCircle className="animate-spin h-10 w-10" />
+        </div>
+      )}
       <StudentViewHeader />
       <div className="p-4">
         <h1 className="text-3xl font-bold mb-8">My Courses</h1>
