@@ -87,8 +87,8 @@ const StudentViewCoursesPage = () => {
     setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
   }, []);
   useEffect(() => {
-    if (!loadingState) setAnimated(false);
-  }, [loadingState]);
+    if (coursesList.length) setAnimated(false);
+  }, [coursesList.length]);
   return (
     <div>
       <StudentViewHeader />
@@ -214,7 +214,7 @@ const StudentViewCoursesPage = () => {
               {coursesList && coursesList.length > 0 ? (
                 coursesList.map((courseItem) => (
                   <Card
-                    className={`cursor-pointer transition-all duration-1000 ${
+                    className={`cursor-pointer transition-all duration-[1s] ${
                       animated && `translate-x-5 opacity-0`
                     }`}
                     key={courseItem?._id}
