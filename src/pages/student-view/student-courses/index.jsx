@@ -4,15 +4,18 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { AuthContext } from "@/context/auth-context";
 import { StudentContext } from "@/context/student-context";
 import { Watch } from "lucide-react";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const StudentCourses = () => {
+  const [animated, setAnimated] = useState(true);
   const { boughtCourses } = useContext(StudentContext);
   const navigate = useNavigate();
   const { authInformation } = useContext(AuthContext);
   useEffect(() => {
-    console.log(authInformation);
+    window.setTimeout(() => {
+      setAnimated(false);
+    }, 100);
   }, []);
 
   return (
@@ -23,7 +26,12 @@ const StudentCourses = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {boughtCourses && boughtCourses.length > 0 ? (
             boughtCourses.map((course) => (
-              <Card key={course.courseId} className="flex flex-col">
+              <Card
+                key={course.courseId}
+                className={`flex flex-col transition-all duration-700 ${
+                  animated && `-translate-y-5 opacity-0`
+                }`}
+              >
                 <CardContent className="p-4 flex-grow">
                   <img
                     src={course?.courseImage}
