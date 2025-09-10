@@ -26,12 +26,14 @@ const StudentContextProvider = ({ children }) => {
     const formData = {
       userId: authInformation?.user?._id,
     };
+    setLoadingState(true);
     const response = await getStudentBoughtCoursesService(formData).catch((e) =>
       console.log(e)
     );
     if (response) {
       setBoughtCourses(response.data.courses);
     }
+    setLoadingState(false);
   };
   const checkIfTheCourseBought = (courseId) => {
     if (boughtCourses) {
