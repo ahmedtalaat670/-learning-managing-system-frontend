@@ -3,21 +3,35 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { AuthContext } from "@/context/auth-context";
 import { StudentContext } from "@/context/student-context";
-import { Watch } from "lucide-react";
+import { LoaderCircle, Watch } from "lucide-react";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const StudentCourses = () => {
   const [animated, setAnimated] = useState(true);
-  const { boughtCourses } = useContext(StudentContext);
+  const { boughtCourses, loadingState } = useContext(StudentContext);
   const navigate = useNavigate();
-  const { authInformation } = useContext(AuthContext);
   useEffect(() => {
     window.setTimeout(() => {
       setAnimated(false);
     }, 100);
   }, []);
-
+  useEffect(() => {
+    if (loadingState) {
+      setAnimated(true);
+    } else {
+      window.setTimeout(() => {
+        setAnimated(false);
+      }, 100);
+    }
+  }, [loadingState]);
+  if (loadingState) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-[rgb(240,240,240,0.5)] z-10 absolute top-0 left-0">
+        <LoaderCircle className="animate-spin h-10 w-10" />
+      </div>
+    );
+  }
   return (
     <div>
       <StudentViewHeader />
