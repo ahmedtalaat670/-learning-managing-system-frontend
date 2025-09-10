@@ -87,8 +87,8 @@ const StudentViewCoursesPage = () => {
     setFilters(JSON.parse(sessionStorage.getItem("filters")) || {});
   }, []);
   useEffect(() => {
-    if (coursesList.length) setAnimated(false);
-  }, [coursesList.length]);
+    if (!loadingState) setAnimated(false);
+  }, [loadingState]);
   return (
     <div>
       <StudentViewHeader />
