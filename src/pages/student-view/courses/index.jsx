@@ -215,7 +215,7 @@ const StudentViewCoursesPage = () => {
                 coursesList.map((courseItem) => (
                   <Card
                     className={`cursor-pointer transition-all duration-1000 ${
-                      animated && "translate-x-5 opacity-0"
+                      animated && `translate-x-5 opacity-0`
                     }`}
                     key={courseItem?._id}
                     onClick={() => {
