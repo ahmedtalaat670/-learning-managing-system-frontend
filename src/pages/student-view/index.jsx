@@ -70,44 +70,43 @@ const StudentViewHomePage = () => {
         <h2 className="text-2xl font-bold mb-6">Featured Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {loading && <LoaderCircle className="h-10 w-10 animate-spin" />}
-          {!loading &&
-            (coursesList && coursesList.length > 0 ? (
-              coursesList.map((courseItem) => (
-                <div
-                  key={courseItem?.title}
-                  className={`border rounded-lg overflow-hidden shadow transition-all duration-[1s] ${
-                    test && "translate-y-5 opacity-0"
-                  }`}
-                >
-                  <img
-                    src={courseItem?.image}
-                    width={300}
-                    height={150}
-                    className="w-full h-40 object-cover"
-                  />
-                  <div className="p-4">
-                    <h3 className="font-bold mb-2 capitalize">
-                      {courseItem?.title}
-                    </h3>
-                    <p className="text-sm text-gray-700 mb-2">
-                      {courseItem?.instructorName}
+          {coursesList && coursesList.length > 0 ? (
+            coursesList.map((courseItem) => (
+              <div
+                key={courseItem?.title}
+                className={`border rounded-lg overflow-hidden shadow transition-all duration-[1s] ${
+                  loading && "translate-y-5 opacity-0"
+                }`}
+              >
+                <img
+                  src={courseItem?.image}
+                  width={300}
+                  height={150}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="font-bold mb-2 capitalize">
+                    {courseItem?.title}
+                  </h3>
+                  <p className="text-sm text-gray-700 mb-2">
+                    {courseItem?.instructorName}
+                  </p>
+                  <p className="font-bold text-[16px]">
+                    ${courseItem?.pricing}
+                  </p>
+                  {checkIfTheCourseBought(courseItem._id)?.length ? (
+                    <p className="capitalize font-bold text-red-800">
+                      *already bought
                     </p>
-                    <p className="font-bold text-[16px]">
-                      ${courseItem?.pricing}
-                    </p>
-                    {checkIfTheCourseBought(courseItem._id)?.length ? (
-                      <p className="capitalize font-bold text-red-800">
-                        *already bought
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                  </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              ))
-            ) : (
-              <h1>No Courses Found</h1>
-            ))}
+              </div>
+            ))
+          ) : (
+            <h1>No Courses Found</h1>
+          )}
         </div>
       </section>
     </div>
