@@ -25,11 +25,11 @@ const StudentViewHomePage = () => {
     setLoading(false);
   };
   useEffect(() => {
-    getAllCourses();
+    if (coursesList.length === 0) getAllCourses();
     setWelcome(false);
   }, []);
   useEffect(() => {
-    if (coursesList.length > 0) {
+    if (coursesList.length) {
       window.setTimeout(() => {
         setAnimated(false);
       }, 100);
