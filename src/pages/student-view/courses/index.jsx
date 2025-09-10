@@ -66,6 +66,7 @@ const StudentViewCoursesPage = () => {
   };
   const getCourses = async () => {
     setLoadingState(true);
+    setAnimated(true);
     const query = new URLSearchParams({ ...filters, sortBy: sort });
     const response = await getStudentViewCourseService(query);
     if (response) {
