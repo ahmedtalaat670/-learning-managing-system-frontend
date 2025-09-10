@@ -76,7 +76,7 @@ const StudentViewHomePage = () => {
         <h2 className="text-2xl font-bold mb-6">Featured Courses</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {loading && <LoaderCircle className="h-10 w-10 animate-spin" />}
-          {coursesList && coursesList.length > 0 ? (
+          {!loading && coursesList && coursesList.length > 0 ? (
             coursesList.map((courseItem) => (
               <div
                 key={courseItem?.title}
