@@ -18,13 +18,11 @@ const StudentCourses = () => {
     }, 200);
   }, []);
   useEffect(() => {
-    if (boughtCourses) {
-      if (boughtCourses.length) {
-        const animation = window.setTimeout(() => {
-          setAnimated(false);
-          window.clearTimeout(animation);
-        }, 200);
-      }
+    if (boughtCourses && boughtCourses.length > 0) {
+      const animation = window.setTimeout(() => {
+        setAnimated(false);
+        window.clearTimeout(animation);
+      }, 200);
     }
   }, [boughtCourses.length]);
 
