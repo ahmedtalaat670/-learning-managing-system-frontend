@@ -94,13 +94,15 @@ const CourseDetails = () => {
   }
   useEffect(() => {
     fetchCourseDetailsById();
+  }, []);
+  useEffect(() => {
     if (courseDetails?.instructorName) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
       }, 200);
     }
-  }, []);
+  }, [loadingState]);
   useEffect(() => {
     if (authInformation.authentication) {
       if (checkIfTheCourseBought(courseDetails?._id)?.length) {
