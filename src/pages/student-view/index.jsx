@@ -28,15 +28,15 @@ const StudentViewHomePage = () => {
     if (coursesList.length === 0) getAllCourses();
     const animation = window.setTimeout(() => {
       setWelcome(false);
+      window.clearTimeout(animation);
     }, 100);
-    window.clearTimeout(animation);
   }, []);
   useEffect(() => {
     if (coursesList.length) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
+        window.clearTimeout(animation);
       }, 100);
-      window.clearTimeout(animation);
     }
   }, [loading]);
   return (

@@ -21,8 +21,8 @@ const StudentCourses = () => {
     if (!loadingState) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
+        window.clearTimeout(animation);
       }, 100);
-      window.clearTimeout(animation);
     }
   }, [loadingState]);
 
