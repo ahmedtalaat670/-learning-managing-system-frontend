@@ -29,7 +29,7 @@ const StudentViewHomePage = () => {
     const animation = window.setTimeout(() => {
       setWelcome(false);
       window.clearTimeout(animation);
-    }, 200);
+    }, 150);
   }, []);
   useEffect(() => {
     if (coursesList.length) {
