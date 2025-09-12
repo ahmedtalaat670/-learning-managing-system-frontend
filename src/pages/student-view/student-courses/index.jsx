@@ -22,7 +22,7 @@ const StudentCourses = () => {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
-      }, 100);
+      }, 200);
     }
   }, [loadingState]);
 
