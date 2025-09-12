@@ -25,7 +25,7 @@ const StudentViewHomePage = () => {
     setLoading(false);
   };
   useEffect(() => {
-    if (coursesList.length === 0) getAllCourses();
+    if (coursesList?.length === 0) getAllCourses();
     const animation = window.setTimeout(() => {
       setWelcome(false);
       window.clearTimeout(animation);
