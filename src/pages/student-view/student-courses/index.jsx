@@ -19,9 +19,10 @@ const StudentCourses = () => {
   useEffect(() => {
     if (loadingState) setAnimated(true);
     if (!loadingState) {
-      window.setTimeout(() => {
+      const animation = window.setTimeout(() => {
         setAnimated(false);
       }, 100);
+      window.clearTimeout(animation);
     }
   }, [loadingState]);
 

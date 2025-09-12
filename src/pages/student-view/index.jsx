@@ -26,13 +26,17 @@ const StudentViewHomePage = () => {
   };
   useEffect(() => {
     if (coursesList.length === 0) getAllCourses();
-    setWelcome(false);
+    const animation = window.setTimeout(() => {
+      setWelcome(false);
+    }, 100);
+    window.clearTimeout(animation);
   }, []);
   useEffect(() => {
     if (coursesList.length) {
-      window.setTimeout(() => {
+      const animation = window.setTimeout(() => {
         setAnimated(false);
       }, 100);
+      window.clearTimeout(animation);
     }
   }, [loading]);
   return (
