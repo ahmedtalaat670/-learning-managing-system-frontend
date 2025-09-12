@@ -18,13 +18,13 @@ const StudentCourses = () => {
     }, 200);
   }, []);
   useEffect(() => {
-    if (!loadingState) {
+    if (boughtCourses.length > 0) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
       }, 200);
     }
-  }, [loadingState]);
+  }, [boughtCourses.length]);
 
   return (
     <div>
