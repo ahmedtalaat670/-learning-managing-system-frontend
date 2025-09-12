@@ -36,6 +36,7 @@ const CourseDetails = () => {
   const [approvalUrl, setApprovalUrl] = useState("");
   const [isBought, setIsBought] = useState(false);
   const [buyNowButtonLoading, setBuyNowButtonLoading] = useState(false);
+  const [animated, setAnimated] = useState(true);
   const location = useLocation();
   const { loadingState, setLoadingState, checkIfTheCourseBought } =
     useContext(StudentContext);
@@ -93,6 +94,12 @@ const CourseDetails = () => {
   }
   useEffect(() => {
     fetchCourseDetailsById();
+    if (courseDetails?.instructorName) {
+      const animation = window.setTimeout(() => {
+        setAnimated(false);
+        window.clearTimeout(animation);
+      }, 200);
+    }
   }, []);
   useEffect(() => {
     if (authInformation.authentication) {
@@ -127,7 +134,11 @@ const CourseDetails = () => {
       )}
       <div className="mx-auto px-4">
         <StudentViewHeader />
-        <div className="bg-gray-900 text-white p-8 rounded-t-lg mt-5">
+        <div
+          className={`bg-gray-900 text-white p-8 rounded-t-lg mt-5 transition-all duration-700 ${
+            animated && `-translate-y-5 opacity-0`
+          }`}
+        >
           <h1 className="text-3xl font-bold mb-4 capitalize">
             {courseDetails?.title}
           </h1>
@@ -147,7 +158,11 @@ const CourseDetails = () => {
         </div>
         <div className="flex flex-col md:flex-row gap-8 mt-8">
           <main className="flex-grow">
-            <Card className="mb-8">
+            <Card
+              className={`mb-8  transition-all duration-700 ${
+                animated && `-translate-x-5 opacity-0`
+              }`}
+            >
               <CardHeader>
                 <CardTitle>What you'll learn</CardTitle>
               </CardHeader>
@@ -164,13 +179,21 @@ const CourseDetails = () => {
                 </ul>
               </CardContent>
             </Card>
-            <Card className="mb-8">
+            <Card
+              className={`mb-8 transition-all duration-700 ${
+                animated && `-translate-x-5 opacity-0`
+              }`}
+            >
               <CardHeader>
                 <CardTitle>Course Description</CardTitle>
               </CardHeader>
               <CardContent>{courseDetails?.description}</CardContent>
             </Card>
-            <Card className="mb-8">
+            <Card
+              className={`mb-8 transition-all duration-700 ${
+                animated && `-translate-x-5 opacity-0`
+              }`}
+            >
               <CardHeader>
                 <CardTitle>Course Curriculum</CardTitle>
               </CardHeader>
@@ -200,7 +223,11 @@ const CourseDetails = () => {
             </Card>
           </main>
           <aside className="w-full md:w-[500px]">
-            <Card className="sticky top-4">
+            <Card
+              className={`sticky top-4 transition-all duration-700 ${
+                animated && `translate-x-5 opacity-0`
+              }`}
+            >
               <CardContent className="p-6">
                 <div className="aspect-video mb-4 rounded-lg flex items-center justify-center">
                   <ReactPlayer
