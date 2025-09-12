@@ -138,7 +138,7 @@ const CourseDetails = () => {
         <StudentViewHeader />
         <div
           className={`bg-gray-900 text-white p-8 rounded-t-lg mt-5 transition-all duration-700 ${
-            animated && `-translate-y-5 opacity-0`
+            animated && `-translate-y-10 opacity-0`
           }`}
         >
           <h1 className="text-3xl font-bold mb-4 capitalize">
@@ -162,7 +162,7 @@ const CourseDetails = () => {
           <main className="flex-grow">
             <Card
               className={`mb-8  transition-all duration-700 ${
-                animated && `-translate-x-5 opacity-0`
+                animated && `-translate-x-10 opacity-0`
               }`}
             >
               <CardHeader>
@@ -183,7 +183,7 @@ const CourseDetails = () => {
             </Card>
             <Card
               className={`mb-8 transition-all duration-700 ${
-                animated && `-translate-x-5 opacity-0`
+                animated && `-translate-x-10 opacity-0`
               }`}
             >
               <CardHeader>
@@ -193,7 +193,7 @@ const CourseDetails = () => {
             </Card>
             <Card
               className={`mb-8 transition-all duration-700 ${
-                animated && `-translate-x-5 opacity-0`
+                animated && `-translate-x-10 opacity-0`
               }`}
             >
               <CardHeader>
@@ -227,7 +227,7 @@ const CourseDetails = () => {
           <aside className="w-full md:w-[500px]">
             <Card
               className={`sticky top-4 transition-all duration-700 ${
-                animated && `translate-x-5 opacity-0`
+                animated && `translate-x-10 opacity-0`
               }`}
             >
               <CardContent className="p-6">
