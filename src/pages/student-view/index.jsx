@@ -32,7 +32,7 @@ const StudentViewHomePage = () => {
     }, 150);
   }, []);
   useEffect(() => {
-    if (coursesList.length) {
+    if (coursesList?.length) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
