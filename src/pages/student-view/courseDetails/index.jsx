@@ -96,7 +96,7 @@ const CourseDetails = () => {
     fetchCourseDetailsById();
   }, []);
   useEffect(() => {
-    if (courseDetails?.instructorName) {
+    if (courseDetails) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
