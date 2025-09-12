@@ -128,7 +128,7 @@ const CourseDetails = () => {
   }
 
   return (
-    <div>
+    <div className="absolute top-0 left-0 w-full h-full">
       {loadingState && (
         <div className="w-full h-screen flex items-center justify-center bg-[rgb(240,240,240,0.5)] z-10 absolute top-0 left-0">
           <LoaderCircle className="animate-spin h-15 w-15" />
