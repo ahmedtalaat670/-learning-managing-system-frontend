@@ -24,7 +24,7 @@ const StudentCourses = () => {
         window.clearTimeout(animation);
       }, 200);
     }
-  }, [boughtCourses.length]);
+  }, [boughtCourses?.length]);
 
   return (
     <div>
