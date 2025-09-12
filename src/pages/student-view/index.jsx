@@ -29,14 +29,14 @@ const StudentViewHomePage = () => {
     const animation = window.setTimeout(() => {
       setWelcome(false);
       window.clearTimeout(animation);
-    }, 100);
+    }, 200);
   }, []);
   useEffect(() => {
     if (coursesList.length) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
-      }, 100);
+      }, 200);
     }
   }, [loading]);
   return (

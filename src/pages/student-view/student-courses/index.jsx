@@ -12,12 +12,12 @@ const StudentCourses = () => {
   const { boughtCourses, loadingState } = useContext(StudentContext);
   const navigate = useNavigate();
   useEffect(() => {
-    window.setTimeout(() => {
+    const animation = window.setTimeout(() => {
       setAnimated(false);
-    }, 100);
+      window.clearTimeout(animation);
+    }, 200);
   }, []);
   useEffect(() => {
-    if (loadingState) setAnimated(true);
     if (!loadingState) {
       const animation = window.setTimeout(() => {
         setAnimated(false);
