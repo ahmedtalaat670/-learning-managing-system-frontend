@@ -39,7 +39,7 @@ const StudentCourses = () => {
       <div className="p-4">
         <h1 className="text-3xl font-bold mb-8">My Courses</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-          {boughtCourses && boughtCourses.length > 0 ? (
+          {!loadingState && boughtCourses && boughtCourses.length > 0 ? (
             boughtCourses.map((course) => (
               <Card
                 key={course.courseId}

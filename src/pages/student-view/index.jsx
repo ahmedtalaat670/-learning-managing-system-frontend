@@ -12,7 +12,7 @@ const StudentViewHomePage = () => {
   const [welcome, setWelcome] = useState(true);
   const { coursesList, setCoursesList, checkIfTheCourseBought } =
     useContext(StudentContext);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [animated, setAnimated] = useState(true);
   const getAllCourses = async () => {
     setLoading(true);
