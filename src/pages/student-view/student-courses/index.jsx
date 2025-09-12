@@ -19,6 +19,7 @@ const StudentCourses = () => {
   }, []);
   useEffect(() => {
     if (boughtCourses && boughtCourses.length > 0) {
+      setAnimated(true);
       const animation = window.setTimeout(() => {
         setAnimated(false);
         window.clearTimeout(animation);
